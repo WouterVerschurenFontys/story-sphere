@@ -1,0 +1,68 @@
+/* Add a black background color to the top navigation */
+.ul {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    overflow: hidden;
+    /* Set a high z-index value */
+}
+
+.NavBar {
+    z-index: 14;
+    position: relative;
+    /* Set position to relative */
+    display: flex;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0);
+    margin-top: 0px;
+    /* Set a high z-index value */
+    animation-duration: 0.5s;
+}
+
+.NavBar:hover {
+    transform: size(1.1);
+    z-index: 1000;
+}
+
+.NavBar li {
+    margin-top: 1%;
+    color: white;
+    list-style-type: none;
+    flex: 1;
+    margin-right: 2%;
+    font-size: 20px;
+    transition-duration: 0.5s;
+}
+
+.NavBar li:first-child {
+    margin-left: -10px !important;
+
+}
+
+.NavBar li a {
+    z-index: 200;
+    box-shadow: 5px 10px #888888,
+        100px 100px 10px rgba(0, 0, 0, 0.1),
+        inset -5px -5px 0px rgba(0, 0, 0, 0.1);
+    display: block;
+    width: 100%;
+
+    /* background-color: #e49b8d; */
+    background-color: #366b74;
+
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    text-shadow: 1px 1px black;
+    transition-duration: 0.5s;
+    /* border: 1px solid #a86f63; */
+    border-radius: 20px;
+}
+
+.NavBar li a:hover {
+    box-shadow: 10px 20px #888888,
+        50px 50px 10px rgba(0, 0, 0, 0.1),
+        inset -10px -10px 0px rgba(0, 0, 0, 0.1);
+}

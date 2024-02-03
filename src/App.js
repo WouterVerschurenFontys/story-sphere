@@ -1,25 +1,64 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import './css/nav.css';
+import './css/site.css';
+import BalloonPage from "./Components/BalloonPage";
+import AboutPage from "./Components/AboutPage";
+import AddStory from "./Components/AddStory";
+import TestPage from "./Components/TestPage";
+// import BackgroundColorCarousel from './Scripts/BackgroundColorCarousel.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const Navbar = () => {
+    return (
+
+        <nav>
+            <ul className="NavBar">
+                <li>
+                    <Link to="/">
+                        <div>Stories</div>
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/AddStory">
+                        <div>AddStory</div>
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/AboutPage">
+                        <div>About</div>
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/TestPage">
+                        <div>TestPage</div>
+                    </Link>
+                </li>
+            </ul>
+        </nav>
+    );
+};
+
+const App = () => {
+
+
+    return (
+        <>
+            {/* <BackgroundColorCarousel /> */}
+            <Router>
+                <Navbar />
+                <Routes>
+
+                    <Route exact path="/" element={<BalloonPage />} />
+                    <Route path="/AboutPage" element={<AboutPage />} />
+                    <Route path="/AddStory" element={<AddStory />} />
+                    <Route exact path="/TestPage" element={<TestPage />} />
+                    <Route path="*" element={<Navigate to="/" />} />
+                </Routes>
+            </Router>
+        </>
+    );
+};
 
 export default App;
