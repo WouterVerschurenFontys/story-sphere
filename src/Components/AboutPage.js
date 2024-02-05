@@ -6,7 +6,7 @@ function AboutPage() {
 
   useEffect(() => {
     // Fetch data from the API
-    fetch('https://localhost:44357/StorySphere')
+    fetch('https://storyballoonapi.azurewebsites.net/api/Story')
       .then(response => response.json())
       .then(data => {
         console.log('Fetched data:', data); // Log data to console
@@ -17,8 +17,9 @@ function AboutPage() {
 
   return (
     <div>
+      <h1>About Page</h1>
+      <p>Story Sphere is a platform for writers to share their stories with the world.</p>
 
-      <h1>Pure CSS Text Carousel</h1>
 
       <div className="content-slider">
         <div className="slider">
