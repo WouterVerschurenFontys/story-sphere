@@ -19,23 +19,16 @@ function AboutPage() {
     <div>
       <h1>About Page</h1>
       <p>Story Sphere is a platform for writers to share their stories with the world.</p>
-
-
-      <div className="content-slider">
-        <div className="slider">
-          <div className="mask">
-            <ul>
-              {data.map(story => (
-                <li className={`anim${story.id}`} key={story.id}>
-                  <div className="quote">Name of writer:{story.name}</div>
-                  <div className="source">Story: {story.storyText}</div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+      <div className='StoryItems'>
+        <ul>
+          {data.map(story => (
+            <li className={`anim${story.id}`} key={story.id}>
+              <div className="Writer">Story Writer: {story.name}</div>
+              <div className="Story">{story.storyText}</div>
+            </li>
+          ))}
+        </ul>
       </div>
-
     </div>
   );
 }

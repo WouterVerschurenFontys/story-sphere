@@ -8,6 +8,7 @@ import BalloonPage from "./Components/BalloonPage";
 import AboutPage from "./Components/AboutPage";
 import AddStory from "./Components/AddStory";
 import TestPage from "./Components/TestPage";
+// import LoginPage from "./Components/LoginPage";
 // import BackgroundColorCarousel from './Scripts/BackgroundColorCarousel.js';
 
 const Navbar = () => {
@@ -35,6 +36,11 @@ const Navbar = () => {
                         <div>TestPage</div>
                     </Link>
                 </li>
+                {/* <li>
+                    <Link to="/LoginPage">
+                        <div>TestPage</div>
+                    </Link>
+                </li> */}
             </ul>
         </nav>
     );
@@ -53,7 +59,8 @@ const App = () => {
                     <Route exact path="/" element={<BalloonPage />} />
                     <Route path="/AboutPage" element={<AboutPage />} />
                     <Route path="/AddStory" element={<AddStory />} />
-                    <Route exact path="/TestPage" element={<TestPage />} />
+                    <Route path="/TestPage" element={<TestPage />} />
+                    {/* <Route path="/LoginPage" element={<LoginPage />} /> */}
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </Router>

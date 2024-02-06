@@ -19,13 +19,15 @@ const BalloonPage = () => {
             .catch(error => console.error('Error fetching data:', error));
     }, []);
 
+    const numberOfBalloons = 1;
+
     return (
         <div className='about-page'>
             <h1>Click a balloon to read a Story</h1>
-            <Link to="/TestPage">
+            <Link to={`/TestPage/${data.id}`}>
                 <div className="balloons-container" ref={balloonsContainerRef}>
-                    {data.map((story, index) => (
-                        <Balloon key={index} containerRef={balloonsContainerRef} storyData={story} />
+                    {[...Array(numberOfBalloons)].map((_, index) => (
+                        <Balloon key={index} containerRef={balloonsContainerRef} storyData={data[index % data.length]} />
                     ))}
                 </div>
             </Link>
@@ -34,3 +36,4 @@ const BalloonPage = () => {
 };
 
 export default BalloonPage;
+

@@ -6,7 +6,6 @@
     align-items: center;
     height: 100%;
     margin-top: 10%;
-    /* background-color: green; */
 }
 
 
@@ -124,6 +123,7 @@ body .container {
     margin-top: 2vh;
     margin-bottom: 2vh;
     width: 100%;
+    list-style: none;
 }
 
 .input-submit {

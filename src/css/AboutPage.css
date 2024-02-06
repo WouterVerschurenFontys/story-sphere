@@ -1,0 +1,26 @@
+.StoryItems {
+    color: black;
+    font-size: 2vh;
+    overflow: visible !important;
+}
+
+.StoryItems li {
+    margin-top: 3vh;
+    margin-right: 2vh;
+    display: inline-block;
+    word-wrap: break-word;
+    background-color: #54a4b1;
+    padding: 1.5vh;
+    border-radius: 2vh;
+}
+
+ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.Writer {
+    color: white;
+    font-size: 3vh;
+}

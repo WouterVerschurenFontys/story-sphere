@@ -1,6 +1,5 @@
 // Balloon.js
 import { useEffect, useRef } from "react";
-// import { useNavigate } from 'react-router-dom';
 
 
 
@@ -56,9 +55,7 @@ const Balloon = ({ containerRef, storyData }) => {
             // Add a click event listener to navigate to another page with storyData
             const handleBalloonClick = () => {
                 console.log('Balloon clicked! Story data:', storyData);
-                // Example: navigate using react-router-dom
-                // history.push(`/story/${storyData.Id}`);
-                // navigate(`/story/${storyData.Id}`);
+                // window.location.href = `./TestPage/${storyData.id}`;
             };
 
             balloon.addEventListener('click', handleBalloonClick);

@@ -43,7 +43,7 @@
 .NavBar li a {
     z-index: 200;
     box-shadow: 5px 10px #888888,
-        100px 100px 10px rgba(0, 0, 0, 0.1),
+        /* 100px 100px 10px rgba(0, 0, 0, 0.1), */
         inset -5px -5px 0px rgba(0, 0, 0, 0.1);
     display: block;
     width: 100%;
