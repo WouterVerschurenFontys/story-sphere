@@ -67,7 +67,7 @@ h1 {
 }
 
 
-.explosion {
+/* .explosion {
     position: absolute;
     top: 0;
     left: 0;
@@ -75,4 +75,4 @@ h1 {
     height: 100vh;
     transform-origin: center;
     z-index: 100;
-}
+} */

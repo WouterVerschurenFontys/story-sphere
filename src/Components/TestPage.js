@@ -5,7 +5,7 @@ const StoryList = () => {
 
     const fetchStories = async () => {
         // Make API request to fetch a batch of stories
-        const response = await fetch('https://localhost:44357/StorySphere');
+        const response = await fetch('https://storyballoonapi.azurewebsites.net/api/Story');
         const newStories = await response.json();
 
         // Append new stories to the existing list

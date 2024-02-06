@@ -1,4 +1,8 @@
+// Balloon.js
 import { useEffect, useRef } from "react";
+// import { useNavigate } from 'react-router-dom';
+
+
 
 const getRandomColor = () => {
     const colors = ['#E6D1B6', '#A37B6F', '#9EB3BA', '#2E5A61', '#763634'];
@@ -6,33 +10,10 @@ const getRandomColor = () => {
     return colors[randomIndex];
 };
 
-const Balloon = ({ containerRef }) => {
+const Balloon = ({ containerRef, storyData }) => {
     const balloonsRef = useRef([]);
 
     useEffect(() => {
-        const handleBalloonClick = (balloon, balloonColor) => {
-            // Remove the balloon from the DOM
-            balloon.remove();
-
-            // Create an expanding effect
-            const explosion = document.createElement('div');
-            explosion.className = 'explosion';
-            explosion.style.backgroundColor = balloonColor;
-
-            document.body.appendChild(explosion);
-
-            // Set up a transition to smoothly expand the explosion
-            setTimeout(() => {
-                explosion.style.transform = 'scale(100)';
-                explosion.style.opacity = 0;
-            }, 10);
-
-            // Remove the explosion from the DOM after the transition
-            setTimeout(() => {
-                document.body.removeChild(explosion);
-            }, 500);
-        };
-
         const createBalloon = (container) => {
             let intervalId;
 
@@ -71,11 +52,22 @@ const Balloon = ({ containerRef }) => {
 
             balloon.addEventListener('mouseenter', handleBalloonHover);
             balloon.addEventListener('mouseleave', handleBalloonLeave);
-            balloon.addEventListener('click', () => handleBalloonClick(balloon, balloonColor));
+
+            // Add a click event listener to navigate to another page with storyData
+            const handleBalloonClick = () => {
+                console.log('Balloon clicked! Story data:', storyData);
+                // Example: navigate using react-router-dom
+                // history.push(`/story/${storyData.Id}`);
+                // navigate(`/story/${storyData.Id}`);
+            };
+
+            balloon.addEventListener('click', handleBalloonClick);
 
             const amplitude = Math.floor(Math.random() * 15) + 3;
             const frequency = 0.03;
-            const speed = Math.floor(Math.random() * 1.5) + 1;
+            const minSpeed = 1;
+            const maxSpeed = 2.5;
+            const speed = Math.random() * (maxSpeed - minSpeed) + minSpeed;
 
             intervalId = requestAnimationFrame(function animate() {
                 const bottomValue = (parseFloat(balloon.style.bottom) || 0) + speed;
@@ -96,6 +88,7 @@ const Balloon = ({ containerRef }) => {
 
                 balloon.removeEventListener('mouseenter', handleBalloonHover);
                 balloon.removeEventListener('mouseleave', handleBalloonLeave);
+                balloon.removeEventListener('click', handleBalloonClick);
 
                 if (document.body.contains(container)) {
                     container.removeChild(balloon);
@@ -112,7 +105,7 @@ const Balloon = ({ containerRef }) => {
         };
 
         spawnBalloonsRandomly();
-    }, [containerRef]);
+    }, [containerRef, storyData]);
 
     return null;
 };
